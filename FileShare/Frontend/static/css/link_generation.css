@@ -1,0 +1,118 @@
+
+    * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    }
+    
+    .mainContainer {
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    flex-direction : column;
+    
+    min-width : 100vw;
+    min-height : 600px;
+    }
+    
+    .textContainer {
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    flex-direction : column;
+    
+    width : 70vw;
+    min-width : 300px;
+    max-width : 600px;
+    min-height: 200px;
+    
+    font-size : 20px;
+    font-weight : 600;
+    
+    border-radius : 20px;
+    border : 2px solid blue;
+    border-style : dotted;
+    }
+    
+    a {
+    color : black;
+    text-decoration : underline;
+    
+    font-size : 20px;
+    font-weight : 400;
+    transition : 0.3s;
+    }
+    a:hover {
+    color : blue;
+    }
+
+    .AddLink {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 150px;
+        height: 50px;
+
+        background-color: blue;
+        color: white;
+        cursor: pointer;
+
+        font-size: 18px;
+
+        border-radius: 10px;
+
+        margin: 10px;
+    }
+
+    .identifier-form {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .btns {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        height: 60px;
+    }
+
+    .submit-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        width: 120px;
+        height: 40px;
+        cursor: pointer;
+
+        margin: 10px;
+
+        background-color: blue;
+        color: white;
+        border: none;
+    }
+    
+    .reset-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 120px;
+        height: 40px;
+        cursor: pointer;
+
+        margin: 10px;
+
+        background-color: rgb(220,220,220);
+        color: black;
+        border: none;
+    }
