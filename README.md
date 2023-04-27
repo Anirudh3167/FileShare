@@ -1,10 +1,10 @@
 # FileShare
 This is used to send the files anonymously. 
 
-### NOTE:-
+<b> NOTE:- </b>
 Your files will be available in public domain like the hosted platforms,website maintainers,...
 
-<h1 align="center"> working Website:- </h1>
+<h1 align="center"> Working Website:- </h1>
 https://anirudh3167.pythonanywhere.com
 
 <h1 align="center"> Installation </h1>
