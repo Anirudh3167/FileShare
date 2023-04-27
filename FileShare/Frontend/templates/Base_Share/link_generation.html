@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Link Generation </title>
+    <link rel="stylesheet" href="{% static 'css/link_generation.css' %}">
+</head>
+<body>
+    {% include 'components/Base_Share_navbar.html' %}
+    <div class="mainContainer">
+        <div class="textContainer">
+            Link :- <br />
+            <a href="{% url  'Base_Share:Link to File' Link  %}" target="_blank">
+                https://127.0.0.1:8000/files/{{ Link }}
+            </a>            
+            <div class="AddLink" id="AddLink" onclick="AddLink()"> Make it Public </div>
+            <form action="/link-generate" method="POST" id="identifier-form" class="identifier-form">
+
+                    {% csrf_token %}
+                    <input type="hidden" name="Link" value="{{ Link }}">
+                    <input type="text" name="identifier" placeholder="Identifier Name" style="height: 30px;">
+
+                    <div class="btns">
+                        <button type="submit" class="submit-btn"> Submit </button>
+                        <button type="reset" class="reset-btn"> Cancel </button>
+                    </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function AddLink() {
+        var btn = document.getElementById("AddLink").style;
+        var form = document.getElementById("identifier-form").style;
+
+        btn.display = "none";
+        form.display = "flex";
+    }
+</script>
+</html>

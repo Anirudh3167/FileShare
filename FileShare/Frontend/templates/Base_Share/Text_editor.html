@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Text Editor | FileShare </title>
+    <link rel="stylesheet" href="{% static 'css/Text_editor.css' %}">
+</head>
+<body>
+    {% include 'components/Base_Share_navbar.html' %}
+    <div class="mainContainer">
+        <div class="Editor">
+            <div class="CodeName" contenteditable="true"> Code Name </div>
+            <div class="Tools"></div>
+            <div class="TextArea" contenteditable="true" id="TextArea"> This is content Editable.</div>
+        </div>
+
+        <!-- <form action="" method="POST">
+            {% csrf_token %}
+            <textarea name="Code" type="hidden"></textarea>
+        </form> -->
+    </div>
+    <script>
+        document.getElementById("TextArea").addEventListener("keydown", function(event) {
+            var elem = document.querySelector("#TextArea");
+                if (event.keyCode === 13 && !event.shiftKey) {
+                  event.preventDefault();
+                  var br = document.createElement("br");
+                  elem.appendChild(br);
+                }
+        });
+    </script>
+</body>
+</html>
