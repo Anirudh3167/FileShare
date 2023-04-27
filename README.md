@@ -4,7 +4,7 @@ This is used to send the files anonymously.
 <b> NOTE:- </b>
 Your files will be available in public domain like the hosted platforms,website maintainers,...
 
-<h1 align="center"> Working Website:- </h1>
+<h1 align="center"> Working Website </h1>
 https://anirudh3167.pythonanywhere.com
 
 <h1 align="center"> Installation </h1>
@@ -40,7 +40,7 @@ https://anirudh3167.pythonanywhere.com
 
 2. Public availability of links (via public links on home page)
 
-<h1 align="center"> Expected Future Upgrades:- </h1>
+<h1 align="center"> Expected Future Upgrades </h1>
 
 1. Anonymous file upload and download
 
