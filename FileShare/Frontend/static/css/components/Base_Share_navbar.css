@@ -92,6 +92,7 @@ li > ul {
         height: 2px;
         margin: 5px;
         background-color: black;
+        transition :0.5s;
   }
     
   .hamburger-active .hamburger-before {
