@@ -21,6 +21,8 @@
     width: 70vw;
     min-width: 400px;
     max-width: 600px;
+
+    overflow: scroll;
 }
 
 table, th, td {
