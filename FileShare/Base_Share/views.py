@@ -10,26 +10,32 @@ from django.http import FileResponse
 #############################################################
 def FileInput(request):
     if (request.method == "POST"):
-        file = request.FILES['file_input']
-        file_name = file.name
-        file_path = os.path.join(settings.BASE_DIR, 'Files/', file_name)
+        files = request.FILES.getlist('file_input')
 
-        # Checking if the file with the same name already exists
-        count = 1
-        while os.path.exists(file_path):
-            # file.name[0] == ABC   || file.name[1] == .txt  ==> For file ABC.txt
-            file_name = f"{os.path.splitext(file.name)[0]}_{count}{os.path.splitext(file.name)[1]}"
+        Link = []
+        file_count = 0
+        for file in files:
+            file_name = file.name
             file_path = os.path.join(settings.BASE_DIR, 'Files/', file_name)
-            count += 1
 
-        with open(file_path, 'wb+') as destination:
-            for chunk in file.chunks():
-                destination.write(chunk)
+            # Checking if the file with the same name already exists
+            count = 1
+            while os.path.exists(file_path):
+                # file.name[0] == ABC   || file.name[1] == .txt  ==> For file ABC.txt
+                file_name = f"{os.path.splitext(file.name)[0]}_{count}{os.path.splitext(file.name)[1]}"
+                file_path = os.path.join(settings.BASE_DIR, 'Files/', file_name)
+                count += 1
 
-        link = generate_link()
-        FileLink.objects.create(link = link, path = file_path, name = file.name)
+            with open(file_path, 'wb+') as destination:
+                for chunk in file.chunks():
+                    destination.write(chunk)
 
-        context = {"Link" : link}
+            link = generate_link()
+            FileLink.objects.create(link = link, path = file_path, name = file.name)
+
+            Link.append(link)
+            file_count += 1
+            context = {"Link" : Link}
         return render(request,'Base_Share/link_generation.html',context=context)
       
     return render(request,"Base_Share/home.html")

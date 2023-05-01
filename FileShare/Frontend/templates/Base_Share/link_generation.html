@@ -12,15 +12,16 @@
     {% include 'components/Base_Share_navbar.html' %}
     <div class="mainContainer">
         <div class="textContainer">
+            {% for link in Link %}
             Link :- <br />
             <a href="{% url  'Base_Share:Link to File' Link  %}" target="_blank">
-                https://127.0.0.1:8000/files/{{ Link }}
+                https://127.0.0.1:8000/files/{{ link }}
             </a>            
             <div class="AddLink" id="AddLink" onclick="AddLink()"> Make it Public </div>
             <form action="/link-generate" method="POST" id="identifier-form" class="identifier-form">
 
                     {% csrf_token %}
-                    <input type="hidden" name="Link" value="{{ Link }}">
+                    <input type="hidden" name="Link" value="{{link}}">
                     <input type="text" name="identifier" placeholder="Identifier Name" style="height: 30px;">
 
                     <div class="btns">
@@ -28,6 +29,7 @@
                         <button type="reset" class="reset-btn"> Cancel </button>
                     </div>
             </form>
+            {% endfor %}
         </div>
     </div>
 </body>

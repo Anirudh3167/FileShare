@@ -14,7 +14,7 @@
     min-height: 600px;
     height: 100vh;
 
-    background-color: rgb(60,60,60);
+    background: linear-gradient(90deg, rgb(150,150,20), red);
 }
 
 .tableContainer {
@@ -35,5 +35,5 @@ th {
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: rgb(255,255,255,0.1);
 }

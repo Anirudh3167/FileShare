@@ -12,7 +12,7 @@
 
     min-width: 100vw;
     min-height: 100vh;
-    background-color: rgb(60,60,60);
+    background: linear-gradient(90deg,rgb(150,150,20),red);
 }
 
 .uploadBox {
@@ -24,6 +24,7 @@
     border: 3px solid blue;
     border-style: dashed;
     border-radius: 20px;
+    background: rgba(240,240,240,0.1);
 
     width: 90vw;
     height: 400px;

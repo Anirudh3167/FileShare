@@ -10,12 +10,10 @@
     justify-content : center;
     flex-direction : column;
     
-    width : 100vw;
-    min-height : 600px;
+    min-height : 100vh;
 
     margin: 0;
-    margin-top: 60px;
-    background-color: rgb(60,60,60);
+    background: linear-gradient(90deg, rgb(150,150,20),red);
     }
 
 .reciever-form {
@@ -23,6 +21,22 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    width: 300px;
+    min-height: 200px;
+    background-color: white;
+}
+
+.inputBox {
+    display: flex;
+
+    width: calc(100% - 20px);
+    height: 40px;
+
+    margin: 10px;
+    padding: 10px;
+    border: 0;
+    background-color: rgba(20,20,20,0.2);
 }
 
 .btns {

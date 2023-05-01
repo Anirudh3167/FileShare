@@ -10,12 +10,12 @@
 </head>
 <body>
     {% include 'components/Base_Share_navbar.html' %}
-    <div class="mainContainer">
 
+    <div class="mainContainer">
         <form action="" method="POST" class="reciever-form">
             {% csrf_token %}
-            <label for="link-code" style="display: flex; width:100%; margin:10px; font-size:20px; font-weight:400;">Code : </label>
-            <input type="text" name="link-code" placeholder="Enter code link">
+            <label for="link-code" style="display: flex;align-items:center; justify-content:center; width:100%; margin:10px; font-size:28px; font-weight:600; text-decoration:underline;">Code </label>
+            <input type="text" class="inputBox" name="link-code" placeholder="Enter code link">
             <div class="btns">
                 <button type="submit" class="submit-btn"> Submit </button>
                 <button type="reset" class="reset-btn"> Cancel </button>
