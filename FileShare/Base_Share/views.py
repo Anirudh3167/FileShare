@@ -16,15 +16,22 @@ def FileInput(request):
         file_count = 0
         for file in files:
             file_name = file.name
-            file_path = os.path.join(settings.BASE_DIR, 'Files/', file_name)
+            file_path = os.path.join(settings.BASE_DIR, 'Files\\', file_name)
 
             # Checking if the file with the same name already exists
             count = 1
             while os.path.exists(file_path):
                 # file.name[0] == ABC   || file.name[1] == .txt  ==> For file ABC.txt
-                file_name = f"{os.path.splitext(file.name)[0]}_{count}{os.path.splitext(file.name)[1]}"
-                file_path = os.path.join(settings.BASE_DIR, 'Files/', file_name)
+                name, extension = os.path.splitext(file_name)
+                new_name = f"{name}_{count}{extension}"
+                file_path = os.path.join(settings.BASE_DIR, 'Files\\', new_name)
                 count += 1
+            
+            print(f"File path: {file_path}")
+            # Create directories if they don't exist
+            directory = os.path.dirname(file_path)
+            if not os.path.exists(directory):
+                os.makedirs(directory)
 
             with open(file_path, 'wb+') as destination:
                 for chunk in file.chunks():
