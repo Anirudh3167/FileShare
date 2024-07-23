@@ -92,7 +92,7 @@ def RecieveFile(request):
         if (link == ""):
             return HttpResponse("There is no link with this code")
         else:
-            context = {"Link" : link}
+            context = {"Link" : [link]}
             return render(request,"Base_Share/link_generation.html",context = context)
 
     return render(request,'Base_Share/file_recieve.html')

@@ -7,65 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Text Editor | FileShare </title>
     <link rel="stylesheet" href="{% static 'css/Text_editor.css' %}">
+    <script>
+        let filename = "";
+        let code = "";
+
+        const updateName = (event) => {
+            filename = event.target.value;
+        }
+        const updateCode = (event) => {
+            code = event.target.value;
+        }
+        const handleUpload = () => {
+            console.log(filename);
+            console.log(code);
+        }
+    </script>
 </head>
 <body>
     {% include 'components/Base_Share_navbar.html' %}
     <div class="mainContainer">
         <div class="Editor">
-            <div class="CodeName" contenteditable="true"> Code Name </div>
+            <input type="text" class="CodeName"
+            onchange="updateName(event)" placeholder="File Name"></input>
             <div class="Tools"></div>
-            <div class="TextArea" contenteditable="true" id="TextArea"> This is content Editable.</div>
+            <textarea class="TextArea" id="TextArea" 
+            onchange="updateCode(event)" placeholder="Write your code here."></textarea>
         </div>
-
+        <div class="uploadBtn" onclick="handleUpload()"> Upload </div>
         <!-- <form action="" method="POST">
             {% csrf_token %}
             <textarea name="Code" type="hidden"></textarea>
         </form> -->
     </div>
-    <script>
-        document.getElementById("TextArea").addEventListener("keydown", function(event) {
-            var elem = document.querySelector("#TextArea");
-                if (event.keyCode === 13 & !event.shiftKey) {  // For Enter + Shift
-                    // Prevent the Default action.
-                    event.preventDefault();
-
-                    // Getting the editor selection and range
-                    var editor = document.getElementById("TextArea");
-                    var doc = editor.ownerDocument.defaultView;
-                    var sel = doc.getSelection();
-                    var range = sel.getRangeAt(0);
-
-                    // The action to be done.
-                    var newLine = document.createTextNode("\u2029");
-                    range.insertNode(newLine);
-
-                    // Move the cursor to new line.
-                    range.setStartAfter(newLine);
-                    range.setEndAfter(newLine);
-                    sel.removeAllRanges();
-                    sel.addRange(range);
-                }
-                else if (event.keyCode === 9) { // For Tab
-                    // Prevent the default action.
-                    event.preventDefault();
-
-                    // Reffer to :- https://stackoverflow.com/questions/2237497/make-the-tab-key-insert-a-tab-character-in-a-contenteditable-div-and-not-blur
-                    // now insert four non-breaking spaces for the tab key
-                    var editor = document.getElementById("TextArea");
-                    var doc = editor.ownerDocument.defaultView;
-                    var sel = doc.getSelection();
-                    var range = sel.getRangeAt(0);
-
-                    var tabNode = document.createTextNode("\u00a0\u00a0\u00a0\u00a0");
-                    range.insertNode(tabNode);
-
-                    range.setStartAfter(tabNode);
-                    range.setEndAfter(tabNode); 
-                    sel.removeAllRanges();
-                    sel.addRange(range);
-                }
-        });
-
-    </script>
 </body>
 </html>

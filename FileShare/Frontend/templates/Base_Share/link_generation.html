@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="{% static 'css/link_generation.css' %}">
 </head>
 <body>
-    {% include 'components/Base_Share_navbar.html' %}
     <div class="mainContainer">
+        {% include 'components/Base_Share_navbar.html' %}
         <div class="textContainer">
             {% for link in Link %}
             Link :- <br />
-            <a href="{% url  'Base_Share:Link to File' Link  %}" target="_blank">
+            <a href="{% url  'Base_Share:Link to File' link  %}" target="_blank">
                 https://127.0.0.1:8000/files/{{ link }}
             </a>            
             <div class="AddLink" id="AddLink" onclick="AddLink()"> Make it Public </div>
